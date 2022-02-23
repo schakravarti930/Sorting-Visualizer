@@ -1,4 +1,34 @@
 // console.log(arr);
+//Buttons
+const bubbleButton = document.getElementById("bubble")
+const mergeButton = document.getElementById("merge")
+const insertionButton = document.getElementById("insertion")
+const quickButton = document.getElementById("quick")
+const newButton = document.getElementById('new-array')
+
+//Event listeners on button
+bubbleButton.onclick = () => {
+    bubbleSort(divArr,parseInt(animationSpeedNode.value))
+}
+
+mergeButton.onclick = () => {
+    mergeSort(divArr,0,divArr.length-1);
+}
+
+insertionButton.onclick = () => {
+    insertionSort(divArr)
+}
+let arr = [2,3,12,4,52,65,2,5,43]
+
+quickButton.onclick = () => {
+    qSort(divArr,0,divArr.length-1)
+    //console.log(arr)
+}
+
+newButton.addEventListener('click',createNewArray);
+
+
+
 
 const animationSpeedNode = document.getElementById("animationSpeed")
 
@@ -33,8 +63,14 @@ function createNewArray(){
 
 createNewArray();
 
-const newButton = document.getElementById('new-array');
-newButton.addEventListener('click',createNewArray);
 
-const bubble = document.getElementById("bubble")
-bubble.onclick = () => bubbleSort(divArr,parseInt(animationSpeedNode.value))
+
+
+
+
+// mergeSort([2,2])
+// var arr = [2,1,5,2,4,4,92,2]
+// mergeSort(divArr,0,divArr.length-1)
+// console.log(arr)
+
+
