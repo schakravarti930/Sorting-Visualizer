@@ -1,6 +1,6 @@
 async function insertionSort(inputArr) {
     let n = inputArr.length;
-        for (let i = 1; i < n; i++) {
+        for (let i = 0; i < n; i++) {
             // Choosing the first element in our unsorted subarray
             let current = inputArr[i];
             let currentHeight = inputArr[i].style.height
@@ -10,12 +10,13 @@ async function insertionSort(inputArr) {
             while ((j > -1) && (currentHeight < inputArr[j].style.height)) {
                 inputArr[j].style.background = "turquoise"
                 inputArr[j+1].style.height = inputArr[j].style.height;
-                inputArr[j].style.background = "yellow"
+                await delay()
+                inputArr[j].style.background = "green"
                 j--;
 
             }
             inputArr[j+1].style.height = currentHeight;
-            current.style.background = "yellow"
+            current.style.background = "green"
         }
-    return inputArr;
+    //return inputArr;
 }

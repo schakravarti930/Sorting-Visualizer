@@ -8,7 +8,7 @@ async function partition(arr, low, high)
     let i = (low - 1);
     for (let j = low; j <= high - 1; j++) {
         arr[j].style.background = "pink"
-        await new Promise(resolve => {setTimeout(resolve,20)});
+        await delay()
         // If current element is
         // smaller than or
         // equal to pivot
@@ -17,7 +17,7 @@ async function partition(arr, low, high)
 
             // swap arr[i] and arr[j]
             arr[i].style.background = "pink"
-            await new Promise(resolve => {setTimeout(resolve,20)});
+            await delay()
             temp = arr[i].style.height;
             arr[i].style.height = arr[j].style.height;
             arr[j].style.height = temp;

@@ -39,27 +39,30 @@ async function merge(arr, l, m, r)
     var k = l;
 
     while (i < n1 && j < n2) {
+        arr[l+i].style.background = "red"
+        arr[m+1+j].style.background = "red"
+
         if (L[i] <= R[j]) {
             //console.log(L[i])
-            arr[l+i].style.background = "red"
-            arr[m+1+j].style.background = "red"
+            
             arr[k].style.height = L[i]
-            await new Promise(resolve => {setTimeout(resolve,20)});
+            await delay()
             //window.setTimeout(10);
            // arr[l+i].style.background = "yellow"
+            arr[l+i].style.background = "yellow"
             arr[m+1+j].style.background = "yellow"
             arr[k].style.background = "yellow"
             i++;
             //await new Promise(resolve => {setTimeout(resolve,1)});
         }
         else {
-            arr[l+i].style.background = "red"
-            arr[m+1+j].style.background = "red"
+
             arr[k].style.height = R[j]
-            await new Promise(resolve => {setTimeout(resolve,20)});
+            // await new Promise(resolve => {setTimeout(resolve,20)});
+            await delay()
             //window.setTimeout(10);
             arr[l+i].style.background = "yellow"
-            //arr[m+1+j].style.background = "yellow"
+            arr[m+1+j].style.background = "yellow"
             //arr[k].style.background = "green"
             arr[k].style.background = "yellow"
             j++;
@@ -74,9 +77,10 @@ async function merge(arr, l, m, r)
         arr[l+i].style.background = "red"
         //arr[m+1+j].style.background = "red"
         arr[k].style.height = L[i]
-        await new Promise(resolve => {setTimeout(resolve,20)});
+        //await new Promise(resolve => {setTimeout(resolve,20)});
+        await delay()
         //window.setTimeout(10);
-        ///arr[l+i].style.background = "yellow"
+        arr[l+i].style.background = "yellow"
         arr[k].style.background = "yellow"
         //await new Promise(resolve => {setTimeout(resolve,1)});
         //window.setTimeout(10);
@@ -92,9 +96,10 @@ async function merge(arr, l, m, r)
         //arr[l+i].style.background = "red"
         arr[m+1+j].style.background = "red"
         arr[k].style.height = R[j]
-        await new Promise(resolve => {setTimeout(resolve,20)});
+        //await new Promise(resolve => {setTimeout(resolve,20)});
+        await delay()
         //window.setTimeout(10);
-        //arr[m+1+j].style.background = "yellow"
+        arr[m+1+j].style.background = "yellow"
         arr[k].style.background = "yellow"
         //await new Promise(resolve => {setTimeout(resolve,1)});
         // window.setTimeout(10);

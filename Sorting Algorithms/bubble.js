@@ -4,7 +4,7 @@ function swap(arr,ei,ej){
     arr[ej].style.height = temp;
 }
 
-async function bubbleSort(arr,animationSpeed){
+async function bubbleSort(arr){
     for(let i = 0;i<arr.length-1;i++)
     {
         for(let j = 0;j<arr.length-i-1;j++)
@@ -12,7 +12,8 @@ async function bubbleSort(arr,animationSpeed){
             arr[j].style.background = "red"
             arr[j+1].style.background = "red"
 
-            await new Promise(resolve => {setTimeout(resolve,animationSpeed)});
+            //await new Promise(resolve => {setTimeout(resolve,animationSpeed)});
+            await delay()
 
             if(parseFloat(arr[j].style.height) > parseFloat(arr[j+1].style.height))
             {

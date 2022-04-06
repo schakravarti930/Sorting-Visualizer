@@ -6,9 +6,15 @@ const insertionButton = document.getElementById("insertion")
 const quickButton = document.getElementById("quick")
 const newButton = document.getElementById('new-array')
 
+
+//Colors defined for animation
+defaultColor = "yellow"
+compareColor = "red"
+correctPlaceColor = "green"
+
 //Event listeners on button
 bubbleButton.onclick = () => {
-    bubbleSort(divArr,parseInt(animationSpeedNode.value))
+    bubbleSort(divArr)
 }
 
 mergeButton.onclick = () => {
@@ -54,6 +60,7 @@ function createNewArray(){
         divArr[i] = bar;
         i++;
         bar.style.height = (element)+"%";
+        bar.style.backgroundColor = defaultColor;
         bar.className = "bar";
         bars.appendChild(bar);
     })
@@ -63,7 +70,9 @@ function createNewArray(){
 
 createNewArray();
 
-
+async function delay(){
+    await new Promise(resolve => {setTimeout(resolve,parseInt(animationSpeedNode.value))});
+}
 
 
 
