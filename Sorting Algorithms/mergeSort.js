@@ -13,18 +13,18 @@ async function merge(arr, l, m, r)
     {
         L[i] = arr[l + i].style.height;
         
-        // arr[l+1].style.background = "red"
+        // arr[l+1].style.background = compareColor
         // await new Promise(resolve => {setTimeout(resolve,300)});
-        // arr[l+1].style.background = "yellow"
+        // arr[l+1].style.background = defaultColor
     }
         
     for (var j = 0; j < n2; j++)
     {
         R[j] = arr[m + 1 + j].style.height;
         
-        // arr[m+1+j].style.background = "red"
+        // arr[m+1+j].style.background = compareColor
         // await new Promise(resolve => {setTimeout(resolve,300)});
-        // arr[m+1+j].style.background = "yellow"
+        // arr[m+1+j].style.background = defaultColor
     }
         
     // Merge the temp arrays back into arr[l..r]
@@ -39,74 +39,66 @@ async function merge(arr, l, m, r)
     var k = l;
 
     while (i < n1 && j < n2) {
-        arr[l+i].style.background = "red"
-        arr[m+1+j].style.background = "red"
+        arr[l+i].style.background = compareColor
+        arr[m+1+j].style.background = compareColor
 
         if (L[i] <= R[j]) {
-            //console.log(L[i])
+            
             
             arr[k].style.height = L[i]
             await delay()
-            //window.setTimeout(10);
-           // arr[l+i].style.background = "yellow"
-            arr[l+i].style.background = "yellow"
-            arr[m+1+j].style.background = "yellow"
-            arr[k].style.background = "yellow"
+            
+            arr[l+i].style.background = defaultColor
+            arr[m+1+j].style.background = defaultColor
+            arr[k].style.background = defaultColor
             i++;
-            //await new Promise(resolve => {setTimeout(resolve,1)});
+            
         }
         else {
 
             arr[k].style.height = R[j]
-            // await new Promise(resolve => {setTimeout(resolve,20)});
+            
             await delay()
-            //window.setTimeout(10);
-            arr[l+i].style.background = "yellow"
-            arr[m+1+j].style.background = "yellow"
-            //arr[k].style.background = "green"
-            arr[k].style.background = "yellow"
+            
+            arr[l+i].style.background = defaultColor
+            arr[m+1+j].style.background = defaultColor
+            
+            arr[k].style.background = defaultColor
             j++;
-            //await new Promise(resolve => {setTimeout(resolve,1)});
+            
         }
         k++;
     }
 
-    // Copy the remaining elements of
-    // L[], if there are any
+    
     while (i < n1) {
-        arr[l+i].style.background = "red"
-        //arr[m+1+j].style.background = "red"
+        arr[l+i].style.background = compareColor
+        
         arr[k].style.height = L[i]
-        //await new Promise(resolve => {setTimeout(resolve,20)});
+        
         await delay()
-        //window.setTimeout(10);
-        arr[l+i].style.background = "yellow"
-        arr[k].style.background = "yellow"
-        //await new Promise(resolve => {setTimeout(resolve,1)});
-        //window.setTimeout(10);
-        //arr[k].style.background = "green"
+        
+        arr[l+i].style.background = defaultColor
+        arr[k].style.background = defaultColor
+        
         i++;
         k++;
-        //await new Promise(resolve => {setTimeout(resolve,1)});
+        
     }
 
-    // Copy the remaining elements of
-    // R[], if there are any
+    
     while (j < n2) {
-        //arr[l+i].style.background = "red"
-        arr[m+1+j].style.background = "red"
+        
+        arr[m+1+j].style.background = compareColor
         arr[k].style.height = R[j]
-        //await new Promise(resolve => {setTimeout(resolve,20)});
+        
         await delay()
-        //window.setTimeout(10);
-        arr[m+1+j].style.background = "yellow"
-        arr[k].style.background = "yellow"
-        //await new Promise(resolve => {setTimeout(resolve,1)});
-        // window.setTimeout(10);
-        //arr[k].style.background = "green"
+        
+        arr[k].style.background = defaultColor
+        
         j++;
         k++;
-        //await new Promise(resolve => {setTimeout(resolve,1)});
+        
     }
 }
 

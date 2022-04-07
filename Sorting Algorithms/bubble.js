@@ -9,8 +9,8 @@ async function bubbleSort(arr){
     {
         for(let j = 0;j<arr.length-i-1;j++)
         {
-            arr[j].style.background = "red"
-            arr[j+1].style.background = "red"
+            arr[j].style.background = compareColor
+            arr[j+1].style.background = compareColor
 
             //await new Promise(resolve => {setTimeout(resolve,animationSpeed)});
             await delay()
@@ -23,11 +23,11 @@ async function bubbleSort(arr){
                 
             
             //await new Promise(resolve => {setTimeout(resolve,5000)});
-            arr[j].style.background = "yellow"
-            arr[j+1].style.background = "yellow"
+            arr[j].style.background = defaultColor
+            arr[j+1].style.background = defaultColor
         }
-        arr[arr.length-i-1].style.background = "green"
+        arr[arr.length-i-1].style.background = defaultColor
     }
-    arr[0].style.background = "green"
+    arr[0].style.background = defaultColor
 }
 

@@ -10,7 +10,7 @@ const newButton = document.getElementById('new-array')
 //Colors defined for animation
 defaultColor = "yellow"
 compareColor = "red"
-correctPlaceColor = "green"
+pivotColor = "pink"
 
 //Event listeners on button
 bubbleButton.onclick = () => {

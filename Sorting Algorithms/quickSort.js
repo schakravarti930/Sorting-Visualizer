@@ -2,12 +2,12 @@ async function partition(arr, low, high)
 {
     let temp;
     let pivot = arr[high].style.height;
-    arr[high].style.background = "red"
+    arr[high].style.background = pivotColor
 
     // index of smaller element
     let i = (low - 1);
     for (let j = low; j <= high - 1; j++) {
-        arr[j].style.background = "pink"
+        arr[j].style.background = compareColor
         await delay()
         // If current element is
         // smaller than or
@@ -16,25 +16,25 @@ async function partition(arr, low, high)
             i++;
 
             // swap arr[i] and arr[j]
-            arr[i].style.background = "pink"
+            arr[i].style.background = compareColor
             await delay()
             temp = arr[i].style.height;
             arr[i].style.height = arr[j].style.height;
             arr[j].style.height = temp;
         }
-        arr[j].style.background = "white"
+        arr[j].style.background = defaultColor
         console.log(low,high,i)
-        i != -1 ? arr[i].style.background = "white":""
+        i != -1 ? arr[i].style.background = defaultColor:""
     }
 
     // swap arr[i+1] and arr[high]
     // (or pivot)
-    arr[i+1].style.background = "red"
+    arr[i+1].style.background = pivotColor
     temp = arr[i + 1].style.height;
     arr[i + 1].style.height = arr[high].style.height;
     arr[high].style.height = temp;
-    //arr[i+1].style.background = "white"
-    arr[high].style.background = "white"
+    //arr[i+1].style.background = defaultColor
+    arr[high].style.background = defaultColor
 
     return i + 1;
 }
@@ -50,7 +50,7 @@ async function qSort(arr, low, high)
         /* pi is partitioning index,
         arr[pi] is now at right place */
         let pi = await partition(arr, low, high);
-        arr[pi].style.background = "white"
+        arr[pi].style.background = defaultColor
         // Recursively sort elements
         // before partition and after
         // partition
