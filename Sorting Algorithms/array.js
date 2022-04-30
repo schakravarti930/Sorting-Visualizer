@@ -36,7 +36,7 @@ bubbleButton.onclick = async() => {
 mergeButton.onclick = async() => {
     disableButtonGroup(buttonGroup);
     await mergeSort(divArr,0,divArr.length-1);
-    disableButtonGroup(buttonGroup);
+    enableButtonGroup(buttonGroup);
 }
 
 insertionButton.onclick = async() => {
