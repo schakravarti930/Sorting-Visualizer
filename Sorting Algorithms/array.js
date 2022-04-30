@@ -1,5 +1,5 @@
-// console.log(arr);
 //Buttons
+const buttonGroup = document.querySelector(".button-group");
 const bubbleButton = document.getElementById("bubble")
 const mergeButton = document.getElementById("merge")
 const insertionButton = document.getElementById("insertion")
@@ -7,43 +7,62 @@ const quickButton = document.getElementById("quick")
 const newButton = document.getElementById('new-array')
 
 
+const disableButtonGroup = (buttonGroup) => {
+    for(let i = 0;i<4;i++){
+        console.log(buttonGroup.children[i]);
+        buttonGroup.children[i].disabled = true;
+    }
+}
+const enableButtonGroup = (buttonGroup) => {
+    for(let i = 0;i<4;i++){
+        console.log(buttonGroup.children[i]);
+        buttonGroup.children[i].disabled = false;
+    }
+}
+
 //Colors defined for animation
 defaultColor = "yellow"
 compareColor = "red"
 pivotColor = "pink"
 
 //Event listeners on button
-bubbleButton.onclick = () => {
-    bubbleSort(divArr)
+bubbleButton.onclick = async() => {
+    //console.log('clicked')
+    disableButtonGroup(buttonGroup);
+    await bubbleSort(divArr);
+    enableButtonGroup(buttonGroup);
 }
 
-mergeButton.onclick = () => {
-    mergeSort(divArr,0,divArr.length-1);
+mergeButton.onclick = async() => {
+    disableButtonGroup(buttonGroup);
+    await mergeSort(divArr,0,divArr.length-1);
+    disableButtonGroup(buttonGroup);
 }
 
-insertionButton.onclick = () => {
-    insertionSort(divArr)
+insertionButton.onclick = async() => {
+    disableButtonGroup(buttonGroup);
+    await insertionSort(divArr);
+    enableButtonGroup(buttonGroup);
 }
 let arr = [2,3,12,4,52,65,2,5,43]
 
-quickButton.onclick = () => {
-    qSort(divArr,0,divArr.length-1)
+quickButton.onclick = async() => {
+    disableButtonGroup(buttonGroup);
+    await qSort(divArr,0,divArr.length-1);
+    enableButtonGroup(buttonGroup);
     //console.log(arr)
 }
 
 newButton.addEventListener('click',createNewArray);
-
-
-
 
 const animationSpeedNode = document.getElementById("animationSpeed")
 
 const arraySizeNode = document.getElementById("arraySize")
 arraySizeNode.oninput = () => createNewArray()
 
-var bars = document.getElementById('bars-container');
+const bars = document.getElementById('bars-container');
 
-var divArr
+let divArr
 
 function createNewArray(){
     
@@ -53,8 +72,8 @@ function createNewArray(){
     }
 
     divArr = []
-    var i = 0;
-    var arr = Array.from({length:arraySize}, () => Math.floor(Math.random()*90) + 10);
+    let i = 0;
+    const arr = Array.from({length:arraySize}, () => Math.floor(Math.random()*90) + 10);
     arr.forEach(element => {
         const bar = document.createElement("div");
         divArr[i] = bar;
